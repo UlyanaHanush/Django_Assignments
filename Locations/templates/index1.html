@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>LOCATIONS.COM</title>
+</head>
+<body>
+    <form method="POST" action="create/">
+        {% csrf_token %}
+        <p>
+            <label>Input city</label><br>
+            <input type="text" name="city" />
+        </p>
+        <p>
+            <label>Input country</label><br>
+            <input type="text" name="country" />
+        </p>
+        <p>
+            <label>Input date</label><br>
+            <input type="text" name="date" />
+        </p>
+        <input type="submit" value="Save" >
+    </form>
+    {% if location.count > 0 %}
+    <h2>list of locations</h2>
+    <table>
+        <thead><th>Id</th><th>City</th><th>Country</th><th>date</th><th></th></thead>
+        {% for locations in location %}
+        <tr>
+            <td>{{ locations.id }}</td>
+            <td>{{ locations.city }}</td>
+            <td>{{ locations.country }}</td>
+            <td>{{ locations.date }}</td>
+            <td><a href="edit/{{locations.id}}">Change</a> | <a href="delete/{{locations.id}}">Delete</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+</body>
+</html>

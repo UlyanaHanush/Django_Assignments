@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>LOCATIONS.COM</title>
+</head>
+<body>
+    <form method="POST">
+        {% csrf_token %}
+        <p>
+            <label>Input city</label><br>
+            <input type="text" name="city" value="{{locations.city}}" />
+        </p>
+        <p>
+            <label>Input country</label><br>
+            <input type="text" name="country" value="{{locations.country}}" />
+        </p>
+        <p>
+            <label>Input date</label><br>
+            <input type="text" name="date" value="{{locations.date}}" />
+        </p>
+        <input type="submit" value="Save" >
+    </form>
+</body>
+</html>
